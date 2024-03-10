@@ -1,31 +1,53 @@
 import React from 'react'
 
+import CryptoCard from './CryptoCard';
+import UseCoinGeckoApi from './UseCoinGeckoApi'; 
+
+
 const FetchCryptoData = () => {
-    const [state, setState] = React.useState({
-        data: null,
-        error: null
-    });
+    const { data: state, error: error } = UseCoinGeckoApi();
 
-    React.useEffect(() => {
-        fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd")
-          .then((response) => response.json())
-          .then(
-            (data) => setState({ ...state, data: data }),
-            (error) => setState({ ...state, error: error })
-          );
-    }, []);
+    const [search, setSearch] = React.useState("");
 
-    if (state.error) {
-        return <div>Error: {state.error.message}</div>;
-    } else {
-        return (
-            <div>
-                {state.data && state.data.map((item: any) => (
-                    <div key={item.id}>{item.name}</div>
-                ))}
-            </div>
-        );
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setSearch(e.target.value);
     }
+
+    const filteredCoins = !!state
+        ? state.filter((coin) =>
+        coin.name.toLowerCase().includes(search.toLowerCase())) 
+        : []
+
+    if (error) {
+        return <div>Error: {error} </div>;
+    }
+    return (
+        <>
+            <div>
+                <input type="text" onChange={handleChange} />
+            </div>
+            <div>
+                {filteredCoins.map((coin) => {
+                    return (
+                    <div
+                    style={{
+                        display: "flex",
+                        flexWrap: "wrap",
+                        justifyContent: "center",
+                    }}
+                    >
+                    <CryptoCard
+                        key={coin.id}
+                        name={coin.name}
+                        image={coin.image}
+                        price={coin.current_price}
+                    />
+                    </div>
+                );
+                })}
+        </div>
+        </>
+    );
 }
 
 export default FetchCryptoData
