@@ -2,8 +2,14 @@ import React from 'react'
 
 
 
+interface CryptoCardProps {
+  image: string,
+  name: string,
+  price: number,
+}
 
-const CryptoCard = ({image, name, price}) => {
+
+const CryptoCard = ( props: CryptoCardProps) => {
     return (
       <div
         style={{
@@ -15,9 +21,9 @@ const CryptoCard = ({image, name, price}) => {
                 textAlign: "center",
         }}
       >
-        <img src={image} alt="crypto" />
-        <h1>{name}</h1>
-        <p>${price}</p>
+        <img src={props.image} alt="crypto" />
+        <h1>{props.name}</h1>
+        <p>${props.price}</p>
       </div>
     );
 };
