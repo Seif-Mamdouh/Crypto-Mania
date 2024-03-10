@@ -5,7 +5,7 @@ import "../styles/style.css";
 const Home = () => {
   return (
     <div className="header">
-      <div>Crypto Mania</div>
+      <div>CryptoMania</div>
     </div>
   );
 };
