@@ -1,15 +1,10 @@
 import React from "react";
 
+import "../styles/style.css";
+
 const Home = () => {
   return (
-    <div style={{
-      display: "flex",
-      justifyContent: "center",
-      alignItems: "center",
-      width: "100%",
-      textAlign: "center",
-      fontSize: "50px"
-    }}>
+    <div className="header">
       <div>Crypto Mania</div>
     </div>
   );

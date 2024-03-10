@@ -1,0 +1,62 @@
+.crypto-card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.crypto-card-row-column-card {
+    flex-basis: calc(100% / 3 - 20px);
+    margin: 5px; 
+}
+
+
+.crypto-card{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 5px;
+    width: 30vw;
+    text-align: center;
+}
+
+.crypto-card img {
+    width: 30%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.crypto-card h1 {
+    font-size: 100%;
+}
+
+.crypto-card p {
+    font-size: 100%;
+}
+
+
+.crypto-search-container {
+    display: flex;
+    justify-content: center;
+}
+
+.crypto-search {
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    background-color: black;
+    border-radius: 5px;
+    width: 35%;
+}
+
+crypto-search::placeholder{
+    font-size: 1em; 
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+}

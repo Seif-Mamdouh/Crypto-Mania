@@ -13,7 +13,7 @@ interface State {
 }
 
 const UseCoinGeckoApi = () => {
-
+    
     const [state, setState] = React.useState<State>({ data: null, error: null });
 
     React.useEffect(() => {

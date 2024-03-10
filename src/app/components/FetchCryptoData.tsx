@@ -3,6 +3,8 @@ import React from 'react'
 import CryptoCard from './CryptoCard';
 import UseCoinGeckoApi from './UseCoinGeckoApi'; 
 
+import "../styles/style.css";
+
 
 const FetchCryptoData = () => {
     const { data: state, error: error } = UseCoinGeckoApi();
@@ -19,34 +21,29 @@ const FetchCryptoData = () => {
         : []
 
     if (error) {
-        return <div>Error: {error} </div>;
+        console.log(error)
+        return <div>Error: {`${error}`} </div>;
     }
     return (
-        <>
-            <div>
-                <input type="text" onChange={handleChange} />
-            </div>
-            <div>
-                {filteredCoins.map((coin) => {
-                    return (
-                    <div
-                    style={{
-                        display: "flex",
-                        flexWrap: "wrap",
-                        justifyContent: "center",
-                    }}
-                    >
-                    <CryptoCard
-                        key={coin.id}
-                        name={coin.name}
-                        image={coin.image}
-                        price={coin.current_price}
-                    />
-                    </div>
-                );
-                })}
+      <>
+        <div className = "crypto-search-container">
+          <input className='crypto-search' type="text" placeholder='Search for a Coin' onChange={handleChange} />
         </div>
-        </>
+        <div className="crypto-card-container ">
+          {filteredCoins.map((coin) => {
+            return (
+              <div className="crypto-card-row-column-card">
+                <CryptoCard
+                  key={coin.id}
+                  name={coin.name}
+                  image={coin.image}
+                  price={coin.current_price}
+                />
+              </div>
+            );
+          })}
+        </div>
+      </>
     );
 }
 
