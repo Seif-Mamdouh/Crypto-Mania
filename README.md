@@ -8,7 +8,7 @@ Hooks that are being used
 2) useEffect
 3) customHooks
 
-Link: https://crypto-mania-9dvc95hvq-seif-mamdouhs-projects.vercel.app/
+Link: https://crypto-mania-ashy.vercel.app/
 
 <img width="1147" alt="Screenshot 2024-03-10 at 4 51 01 PM" src="https://github.com/Seif-Mamdouh/Crypto-Mania/assets/55955558/276cc8f4-e95b-4357-9a2a-fe4aa351e375">
 
